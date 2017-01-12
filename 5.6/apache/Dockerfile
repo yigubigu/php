@@ -168,6 +168,7 @@ RUN set -xe \
 		--enable-mbstring \
 # --enable-mysqlnd is included here because it's harder to compile after the fact than extensions are (since it's a plugin for several extensions, not an extension in itself)
 		--enable-mysqlnd \
+  	    --enable-zip \
 		\
 		--with-curl \
 		--with-libedit \
