@@ -27,6 +27,11 @@ RUN apt-get update && apt-get install -y \
 		libzip-dev \		
 	--no-install-recommends && rm -r /var/lib/apt/lists/*
 
+RUN apt-get update && apt-get install -y libpng12-dev libjpeg-dev && rm -rf /var/lib/apt/lists/* \
+ && docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
+ && docker-php-ext-install gd mysqli mysql opcache
+	
+	
 ENV PHP_INI_DIR /usr/local/etc/php
 RUN mkdir -p $PHP_INI_DIR/conf.d
 
